@@ -46,7 +46,7 @@ export default defineComponent({
   name: "ProfileDetails",
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .card-img {
   position: absolute;
   left: 90px;

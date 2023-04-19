@@ -1,24 +1,25 @@
 <template>
   <div class="container profile-skills">
     <div class="text-end btn-container">
-      <button
+      <!-- <button
         type="button"
         class="btn btn-primary theme-bg-color theme-border-color"
       >
         <img src="../assets/plus.png" alt="plus" />
         Add Skill
-      </button>
+      </button> -->
+      <ModalApp :skills="skills.primary" />
     </div>
 
     <div class="row">
       <div>
         <h3 class="text-start">Primary Skills</h3>
       </div>
-      <div class="d-inline-flex">
+      <div class="d-inline-flex flex-wrap">
         <button
           v-for="(skill, i) in skills.primary"
           type="button"
-          class="btn btn-primary theme-bg-color theme-border-color mr-3"
+          class="btn btn-primary theme-bg-color theme-border-color mr-3 mb-3"
           :key="i"
         >
           {{ skill }}
@@ -29,11 +30,11 @@
       <div>
         <h3 class="text-start">Additional Skills</h3>
       </div>
-      <div class="d-inline-flex">
+      <div class="d-inline-flex flex-wrap">
         <button
           v-for="(skill, i) in skills.additional"
           type="button"
-          class="btn btn-primary"
+          class="btn btn-default theme-color-text theme-border-color mr-3 mb-3"
           :key="i"
         >
           {{ skill }}
@@ -45,40 +46,25 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import ModalApp from "@/components/shared/ModalApp.vue"; // @ is an alias to /src
 
 export default defineComponent({
   name: "ProfileSkills",
+  components: { ModalApp },
+  props: ["skills"],
   data() {
-    return {
-      skills: {
-        primary: [
-          "Javascript",
-          "ReactJS",
-          "PHP Development",
-          "WordPress Development ",
-          "UI Design",
-        ],
-        additional: [
-          "Quality Assurance",
-          "Automation Testing",
-          "HTML/CSS",
-          "Product Design",
-          "SEO Content",
-          "UI/UX",
-          "Google Analytics",
-          "Selenium",
-        ],
-      },
-    };
+    return {};
   },
 });
 </script>
 <style lang="scss">
 .profile-skills {
   margin-top: 29px;
+  margin-bottom: 49px;
 
   .btn-container + .row {
     margin-bottom: 65px;
+    margin-right: 0;
   }
   h3 {
     font-size: 18px;
@@ -86,6 +72,8 @@ export default defineComponent({
   }
   .btn {
     margin-right: 16px;
+    font-size: 15px;
+    line-height: 22px;
   }
 }
 </style>

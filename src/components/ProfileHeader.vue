@@ -32,6 +32,7 @@ export default defineComponent({
   }
   .profile-header-details {
     padding-left: 12px;
+    margin-bottom: 0;
 
     h6 {
       font-size: 18px;

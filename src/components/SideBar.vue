@@ -55,7 +55,7 @@
         </li>
         <li>
           <a
-            href="#submenu2"
+            @click.prevent="logOut()"
             data-bs-toggle="collapse"
             class="nav-link px-0 align-middle"
           >
@@ -69,3 +69,21 @@
     </div>
   </aside>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "SideBar",
+  data() {
+    return {};
+  },
+  methods: {
+    logOut() {
+      // @ts-ignore
+      this.$store.dispatch("auth/logout");
+      this.$router.push("/login");
+    },
+  },
+});
+</script>

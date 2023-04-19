@@ -1,11 +1,27 @@
+<!-- eslint-disable @typescript-eslint/ban-ts-comment -->
 <template>
-  <div class="container-fluid">
-    <div class="row flex-nowrap">
-      <SideBar />
+  <div
+    class="container-fluid vh-100 relative"
+    :class="{ 'theme-bg-color': !loggedIn }"
+  >
+    <div class="row flex-nowrap h-100">
+      <SideBar v-if="loggedIn" />
       <div class="col py-4">
         <router-view />
       </div>
     </div>
+    <img
+      v-if="!loggedIn"
+      class="img-fluid position-absolute top-0 end-0"
+      alt="login img"
+      src="@/assets/bg-1.svg"
+    />
+    <img
+      v-if="!loggedIn"
+      class="img-fluid position-absolute bottom-0 start-0"
+      alt="login img"
+      src="@/assets/bg-2.svg"
+    />
   </div>
 </template>
 
@@ -20,6 +36,21 @@ export default defineComponent({
   },
   props: {
     msg: String,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    // @ts-ignore
+    loggedIn() {
+      // @ts-ignore
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  mounted() {
+    if (this.loggedIn) {
+      this.$router.push("/profile");
+    }
   },
 });
 </script>
