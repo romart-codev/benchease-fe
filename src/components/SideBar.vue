@@ -16,14 +16,14 @@
         id="menu"
       >
         <li class="nav-item">
-          <a href="#" class="nav-link align-middle px-0">
+          <a href="/dashboard" class="nav-link align-middle px-0">
             <i class="fs-4 bi-house"></i>
             <span class="ms-1 d-none d-sm-inline text-white">Dashboard</span>
           </a>
         </li>
         <li>
           <a
-            href="#submenu1"
+            href="/profile"
             data-bs-toggle="collapse"
             class="nav-link px-0 align-middle"
           >
@@ -48,13 +48,14 @@
           </ul> -->
         </li>
         <li>
-          <a href="#" class="nav-link px-0 align-middle">
+          <a href="/settings" class="nav-link px-0 align-middle">
             <i class="fs-4 bi-table"></i>
             <span class="ms-1 d-none d-sm-inline text-white">Settings</span></a
           >
         </li>
         <li>
           <a
+            href="#"
             @click.prevent="logOut()"
             data-bs-toggle="collapse"
             class="nav-link px-0 align-middle"

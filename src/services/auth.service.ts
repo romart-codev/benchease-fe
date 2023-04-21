@@ -1,21 +1,18 @@
 import axios from "axios";
-
-const API_URL = "http://127.0.0.1:8180/oauth/token";
-axios.defaults.baseURL = "/";
-
+const API_URL = "http://localhost:8180/oauth/token";
 class AuthService {
   login(user: { username: any; password: any }) {
     return axios
       .post(API_URL, {
-        username: user.username,
-        password: user.password,
-        client_id: "98f8373e-5f1f-4369-836a-0d6f6b798bb5",
-        client_secret: "tt4okbf4YsrXGICxWQIsOCMdk6fztz4m76Y0y7AY",
+        username: "admin@sample.com",
+        password: "sample",
+        client_id: "98f91eda-a870-4ef4-9cf3-9cb1e6a88c92",
+        client_secret: "v8Ytlyf7P9tSB6c96TnVn4qWwwnCSy5FNU9bLOsX",
         grant_type: "password",
         scope: "",
       })
       .then((response) => {
-        if (response.data.accessToken) {
+        if (response.data.access_token) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }
 
